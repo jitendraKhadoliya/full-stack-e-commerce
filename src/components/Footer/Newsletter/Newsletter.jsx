@@ -1,8 +1,9 @@
 import "./Newsletter.scss";
 import {
-  FaGithubSquare,
+  FaGithub,
   FaLinkedinIn,
-  FaInstagramSquare,
+  FaInstagram,
+  FaTwitter,
 } from "react-icons/fa";
 
 const Newsletter = () => {
@@ -20,19 +21,24 @@ const Newsletter = () => {
         </span>
         <div className="social-icons">
           <div className="icon">
-            <a href="http://" target={"_blank"} rel="noreferrer">
-              <FaGithubSquare size={14} />
-            </a>
+            {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
+              <FaGithub size={17} />
+            {/* </a> */}
           </div>
           <div className="icon">
-            <a href="http://" target={"_blank"} rel="noreferrer">
-              <FaInstagramSquare size={14} />
-            </a>
+            {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
+              <FaInstagram size={17} />
+            {/* </a> */}
           </div>
           <div className="icon">
-            <a href="http://" target={"_blank"} rel="noreferrer">
-              <FaLinkedinIn size={14} />
-            </a>
+            {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
+              <FaLinkedinIn size={17} />
+            {/* </a> */}
+          </div>
+          <div className="icon">
+            {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
+              <FaTwitter size={17} />
+            {/* </a> */}
           </div>
         </div>
       </div>

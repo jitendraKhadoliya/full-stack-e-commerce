@@ -1,6 +1,16 @@
+import prod from '../../../assets/products/earbuds-prod-2.webp'
 import "./Product.scss";
+
 const Product = () => {
-    return <div>Product</div>;
+    return <div className="product-card">
+                <div className="thumbnail">
+                    <img src={prod} alt="prodct" />
+                </div>
+                <div className="prod-details">
+                    <span className="name">Product Name</span>
+                    <span className="price"> &#8377; 500</span>
+                </div>
+            </div>
 };
 
 export default Product;

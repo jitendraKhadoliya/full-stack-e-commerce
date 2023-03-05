@@ -114,9 +114,31 @@
                 }
                 // here i will 2:46
                 .divider{
-
+                    margin: 20px 0;
+                    height: 1px;
+                    width: 100%;
+                    background-color: rgba(0, 0, 0, 0.1);
                 }
-
+                .info-item{
+                    .text-bold{
+                        font-style: 18px;
+                        font-weight: 500;
+                        display: block;
+                        &:nth-child(1){
+                            margin-bottom: 20px;
+                        }
+                        span{
+                            margin-left: 5px;
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #6b6b6b;
+                            cursor: pointer;
+                        }
+                        svg{
+                            margin: 0 5px;
+                        }
+                    }
+                }
             }
         }
     }

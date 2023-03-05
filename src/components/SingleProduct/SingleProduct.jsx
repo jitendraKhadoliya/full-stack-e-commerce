@@ -1,5 +1,5 @@
 import "./SingleProduct.scss";
-import {FaCartPlus, FaFacebookF, FaInstagram, FaInstagramSquare, FaLinkedinIn, FaPinterestP, FaQuora, FaTwitter} from 'react-icons/fa'
+import {FaCartPlus, FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP, FaQuora, FaTwitter} from 'react-icons/fa'
 import singleProductImage from '../../assets/products/headphone-prod-2.webp'
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 

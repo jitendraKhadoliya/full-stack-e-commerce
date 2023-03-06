@@ -34,6 +34,8 @@
             @include lg{
                 width: 465px;
                 margin-right: 74px;
+                height: 600px;
+                object-fit: contain;
             }
             @include xl{
                 width: 500px;

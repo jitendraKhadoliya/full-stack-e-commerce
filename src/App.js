@@ -5,22 +5,26 @@ import SingleProduct from "./components/SingleProduct/SingleProduct.jsx";
 import Header from "./components/Header/Header.jsx";
 import Newsletter from "./components/Footer/Newsletter/Newsletter.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import AppContext from "./utils/Context";
+// import AppContext from "./utils/Context";
+// import AppContexxt from "./utils/Context.js";
+import UserContextProvider from "./utils/Context.js";
 
 function App() {
   return (
-    <Router>
-      {/* <AppContext> */}
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="category/:id" element={<Category />} />
-          <Route path="/product/:id" element={<SingleProduct />} />
-        </Routes>
-        <Newsletter />
-        <Footer />
-      {/* </AppContext> */}
-    </Router>
+    <>
+      <Router>
+        <UserContextProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="category/:id" element={<Category />} />
+            <Route path="/product/:id" element={<SingleProduct />} />
+          </Routes>
+          <Newsletter />
+          <Footer />
+          </UserContextProvider>
+      </Router>
+    </>
   );
 }
 

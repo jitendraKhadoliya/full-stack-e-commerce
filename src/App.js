@@ -5,15 +5,15 @@ import SingleProduct from "./components/SingleProduct/SingleProduct.jsx";
 import Header from "./components/Header/Header.jsx";
 import Newsletter from "./components/Footer/Newsletter/Newsletter.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-// import AppContext from "./utils/Context";
+import AppContext from "./utils/Context";
 // import AppContexxt from "./utils/Context.js";
-import UserContextProvider from "./utils/Context.js";
+// import UserContextProvider from "./utils/Context.js";
 
 function App() {
   return (
     <>
       <Router>
-        <UserContextProvider>
+        <AppContext>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
           </Routes>
           <Newsletter />
           <Footer />
-          </UserContextProvider>
+          </AppContext>
       </Router>
     </>
   );

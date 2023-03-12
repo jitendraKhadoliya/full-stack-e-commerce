@@ -10,15 +10,6 @@ const Products = ({innerPage , headingText,products}) => {
         {products?.data?.map((item)=>(
           <Product key={item.id} id={item.id} data={item.attributes} />
         ))}
-        {/* <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product /> */}
       </div>
     </div>
   );

@@ -6,8 +6,6 @@ import Header from "./components/Header/Header.jsx";
 import Newsletter from "./components/Footer/Newsletter/Newsletter.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AppContext from "./utils/Context";
-// import AppContexxt from "./utils/Context.js";
-// import UserContextProvider from "./utils/Context.js";
 
 function App() {
   return (

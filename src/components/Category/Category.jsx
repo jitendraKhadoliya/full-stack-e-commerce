@@ -7,7 +7,7 @@ import useFetch from '../../hooks/useFetch.js';
 const Category = () => {
     const {id} = useParams();
     const {data} = useFetch(`/api/products?populate=*&[filters][categories][id]=${id}`);
-    console.log(data);
+    // console.log(data);
     return (
         <div className="category-main-layout">
             <div className="layout">

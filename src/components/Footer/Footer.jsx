@@ -1,5 +1,5 @@
 import { FaLocationArrow, FaMobile, FaEnvelope } from "react-icons/fa";
-import payment from '../../assets/payments.png'
+import payment from "../../assets/payments.png";
 
 import "./Footer.scss";
 
@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="title">Category</div>
           <span className="text">Headphones</span>
           <span className="text">Smart Watches</span>
-          <span className="text">Bluetooh Speaker</span>
+          <span className="text">Bluetooth Speaker</span>
           <span className="text">Wireless Earbuds</span>
           <span className="text">Home theatre</span>
           <span className="text">Projectors</span>
@@ -48,16 +48,19 @@ const Footer = () => {
           <div className="title">Page</div>
           <span className="text">Home</span>
           <span className="text">About</span>
-          <span className="text">Privecy Policy</span>
-          <span className="text">Reaturns</span>
+          <span className="text">Privacy Policy</span>
+          <span className="text">Returns</span>
           <span className="text">Terms & Conditions</span>
           <span className="text">Contact Us</span>
         </div>
       </div>
       <div className="bottom-bar">
         <div className="bottom-bar-content">
-            <div className="text">ZenBazaar 2023 CREATED BY JITENDRA KHADOLIYA, PREMIUM E-COMMERCE SOLUTIONS.</div>
-            <img src={payment} alt="payment" />
+          <div className="text">
+            ZenBazaar 2023 CREATED BY JITENDRA KHADOLIYA, PREMIUM E-COMMERCE
+            SOLUTIONS.
+          </div>
+          <img src={payment} alt="payment" />
         </div>
       </div>
     </footer>

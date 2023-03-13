@@ -1,11 +1,18 @@
-import Products from '../../Products/Products.jsx';
+import useFetch from "../../../hooks/useFetch.js";
+import Products from "../../Products/Products.jsx";
 
-const RelatedProducts = () => {
-    return (
-        <div className="related-products">
-            <Products headingText="Related Products" />
-        </div>
-    );
+// * Here we will show the related data and fetch it from our custom hook
+
+const RelatedProducts = ({ productId, categoryId }) => {
+  const { data } = useFetch(
+    `/api/products?populate=*&[filters][id][$ne]=${productId} &[filters][categories][id]=${categoryId}&pagination[start]=0&pagination[limit]=6`
+  );
+
+  return (
+    <div className="related-products">
+      <Products headingText="Related Products" products={data} />
+    </div>
+  );
 };
 
 export default RelatedProducts;

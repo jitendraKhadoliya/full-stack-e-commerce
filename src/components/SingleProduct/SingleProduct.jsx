@@ -8,13 +8,15 @@ import {
   FaQuora,
   FaTwitter,
 } from "react-icons/fa";
+
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.js";
 import { useState } from "react";
 
 const SingleProduct = () => {
-  // this is for changing cart data
+  // * this is for changing cart data
+
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
@@ -24,16 +26,19 @@ const SingleProduct = () => {
   };
 
   const decrement = () => {
-    if (quantity === 1) {
-      return 1;
-    } else {
-      setQuantity((previousValue) => previousValue - 1);
-    }
+    setQuantity((previousValue) => {
+      if (previousValue === 1) return 1;
+      else {
+        return previousValue - 1;
+      }
+    });
   };
 
   if (!data) return;
   const product = data.data[0].attributes;
-  // console.log("products",product)
+  // ! remove console after use
+  console.log("products", product);
+
   return (
     <div className="single-product-main-container">
       <div className="layout">
@@ -89,7 +94,10 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-        <RelatedProducts />
+        <RelatedProducts
+          productId={id}
+          categoryId={product.categories.data[0].id}
+        />
       </div>
     </div>
   );

@@ -1,14 +1,18 @@
 import "./Newsletter.scss";
-import {
-  FaGithub,
-  FaLinkedinIn,
-  FaInstagram,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa";
+
+// * it will trigger the function and scroll it
+export const handleClickScrollToAboutSection = () => {
+  const element = document.getElementById("about");
+  if (element) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const Newsletter = () => {
   return (
-    <div className="newsletter-section">
+    <div className="newsletter-section" id="about">
       <div className="newsletter-content">
         <span className="small-text">Newsletters</span>
         <span className="big-text">Sign up for latest updates and offers</span>
@@ -22,22 +26,22 @@ const Newsletter = () => {
         <div className="social-icons">
           <div className="icon">
             {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
-              <FaGithub size={17} />
+            <FaGithub size={17} />
             {/* </a> */}
           </div>
           <div className="icon">
             {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
-              <FaInstagram size={17} />
+            <FaInstagram size={17} />
             {/* </a> */}
           </div>
           <div className="icon">
             {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
-              <FaLinkedinIn size={17} />
+            <FaLinkedinIn size={17} />
             {/* </a> */}
           </div>
           <div className="icon">
             {/* <a href="http://" target={"_blank"} rel="noreferrer"> */}
-              <FaTwitter size={17} />
+            <FaTwitter size={17} />
             {/* </a> */}
           </div>
         </div>

@@ -6,6 +6,7 @@ import Header from "./components/Header/Header.jsx";
 import Newsletter from "./components/Footer/Newsletter/Newsletter.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AppContext from "./utils/Context";
+import PageNotFound from "./components/pagenotfound/PageNotFound.jsx";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="category/:id" element={<Category />} />
             <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
           <Newsletter />
           <Footer />
-          </AppContext>
+        </AppContext>
       </Router>
     </>
   );

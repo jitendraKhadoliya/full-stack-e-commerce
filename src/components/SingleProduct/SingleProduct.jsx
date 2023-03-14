@@ -12,7 +12,8 @@ import {
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch.js";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CreatedContext } from "../../utils/Context";
 
 const SingleProduct = () => {
   // * this is for changing cart data
@@ -20,6 +21,7 @@ const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
+  const { handleAddToCart } = useContext(CreatedContext);
 
   const increment = () => {
     setQuantity((previousValue) => previousValue + 1);
@@ -35,9 +37,10 @@ const SingleProduct = () => {
   };
 
   if (!data) return;
+  console.log("this is data ", data);
   const product = data.data[0].attributes;
   // ! remove console after use
-  console.log("products", product);
+  // console.log("products", product);
 
   return (
     <div className="single-product-main-container">
@@ -66,7 +69,15 @@ const SingleProduct = () => {
                 <span>{quantity}</span>
                 <span onClick={increment}>+</span>
               </div>
-              <button className="add-to-cart-button">
+              {/* // ! add cart functionality */}
+
+              <button
+                className="add-to-cart-button"
+                onClick={() => {
+                  handleAddToCart(data.data[0], quantity);
+                  setQuantity(1);
+                }}
+              >
                 <FaCartPlus size={20} />
                 Add to Cart
               </button>

@@ -6,16 +6,15 @@ const useFetch = (endPoint) => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    const makeApiCallForSingleCategory = async ()=>{
-        const res = await fetchDataFromApi(endPoint);
-        setData(res);
-    }
+    const makeApiCallForSingleCategory = async () => {
+      const res = await fetchDataFromApi(endPoint);
+      setData(res);
+    };
 
     makeApiCallForSingleCategory();
   }, [endPoint]);
 
-
-  return {data};
+  return { data };
 };
 
 export default useFetch;

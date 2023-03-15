@@ -5,23 +5,30 @@ import { useContext } from "react";
 import { CreatedContext } from "../../../utils/Context";
 
 const CartItem = () => {
-  const { CartItems, handleAddToCart, handleRemoveFromCart } =
+  const { cartItems, handleCartProductQuantity, handleRemoveFromCart } =
     useContext(CreatedContext);
 
   return (
     <div className="cart-products">
-      {CartItems.map((item) => (
+      {cartItems.map((item) => (
         <div key={item.id} className="cart-product">
           <div className="img-container">
             <img src={prod} alt="cart-product" />
           </div>
           <div className="prod-details">
             <span className="name">{item.attributes.title}</span>
-            <MdClose className="close-btn" />
+            <MdClose
+              className="close-btn"
+              onClick={() => handleRemoveFromCart(item)}
+            />
             <div className="quantity-buttons">
-              <span>-</span>
-              <span>10</span>
-              <span>+</span>
+              <span onClick={() => handleCartProductQuantity("dec", item)}>
+                -
+              </span>
+              <span>{item.attributes.quantity}</span>
+              <span onClick={() => handleCartProductQuantity("inc", item)}>
+                +
+              </span>
             </div>
             <div className="text">
               <span>3</span>

@@ -31,8 +31,12 @@ const AppContext = (props) => {
     }
     setCartItems(items);
   };
-  const handleRemoveFromCart = () => {};
-  const handleCartProductQuantity = () => {};
+  const handleRemoveFromCart = (product) => {
+    let items = [...cartItems];
+    items = items.filter((p) => p.id !== product.id);
+    setCartItems(items);
+  };
+  const handleCartProductQuantity = (type, product) => {};
 
   return (
     <>

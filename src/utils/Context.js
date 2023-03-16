@@ -17,7 +17,13 @@ const AppContext = (props) => {
 
   const location = useLocation();
 
-  useEffect(() => {}, [cartItems]);
+  useEffect(() => {
+    let subTotal = 0;
+    cartItems.map(
+      (item) => (subTotal += item.attributes.price * item.attributes.quantity)
+    );
+    setCartSubTotal(subTotal);
+  }, [cartItems]);
 
   const handleAddToCart = (product, quantity) => {
     // * here first i will add all the cartItems in array
@@ -36,7 +42,19 @@ const AppContext = (props) => {
     items = items.filter((p) => p.id !== product.id);
     setCartItems(items);
   };
-  const handleCartProductQuantity = (type, product) => {};
+  const handleCartProductQuantity = (type, product) => {
+    const items = [...cartItems];
+    const index = items.findIndex((p) => p.id === product.id);
+    if (type === "inc") {
+      items[index].attributes.quantity += 1;
+    } else if (type === "dec") {
+      if (items[index].attributes.quantity === 1) return;
+      else {
+        items[index].attributes.quantity -= 1;
+      }
+    }
+    setCartItems(items);
+  };
 
   return (
     <>

@@ -25,25 +25,26 @@ const Cart = ({ setShowCart }) => {
             <div className="empty-card">
               <BsCartX />
               <span>No Product In The Cart.</span>
-              <button className="return-cta">RETURN TO SHOP</button>
+              <button className="return-cta" onClick={() => setShowCart(false)}>
+                {" "}
+                RETURN TO SHOP
+              </button>
             </div>
           </>
         ) : (
+          // * this is the case when products has been added into the cart
           <>
-            // * this is the case when products has been added into the cart
-            <>
-              {/* here i will make cart Footer here */}
-              <CartItem />
-              <div className="cart-footer">
-                <div className="subtotal">
-                  <span className="text">SubTotal:</span>
-                  <span className="total">&#8377;{cartSubTotal}</span>
-                </div>
-                <div className="button">
-                  <button className="checkout-cta">Checkout</button>
-                </div>
+            {/* here i will make cart Footer here */}
+            <CartItem />
+            <div className="cart-footer">
+              <div className="subtotal">
+                <span className="text">SubTotal:</span>
+                <span className="total">&#8377;{cartSubTotal}</span>
               </div>
-            </>
+              <div className="button">
+                <button className="checkout-cta">Checkout</button>
+              </div>
+            </div>
           </>
         )}
       </div>

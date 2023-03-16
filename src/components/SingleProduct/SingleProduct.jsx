@@ -37,9 +37,8 @@ const SingleProduct = () => {
   };
 
   if (!data) return;
-  console.log("this is data ", data);
+  // console.log("this is data ", data);
   const product = data.data[0].attributes;
-  // ! remove console after use
   // console.log("products", product);
 
   return (

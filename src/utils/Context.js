@@ -17,13 +17,23 @@ const AppContext = (props) => {
 
   const location = useLocation();
 
+  // * it will scroll to the top whenever we change location
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  useEffect(() => {
+    let count = 0;
+    cartItems.map((c) => (count += c.attributes.quantity));
+    // * here we will update the cartCount value inside the setCartCount state
+    setCartCount(count);
+
     let subTotal = 0;
     cartItems.map(
       (item) => (subTotal += item.attributes.price * item.attributes.quantity)
     );
     setCartSubTotal(subTotal);
-  }, [cartItems]);
+  }, [cartCount, cartItems]);
 
   const handleAddToCart = (product, quantity) => {
     // * here first i will add all the cartItems in array

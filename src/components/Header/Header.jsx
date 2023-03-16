@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { TbSearch } from "react-icons/tb";
 import { CgShoppingCart } from "react-icons/cg";
@@ -13,6 +13,7 @@ import { handleClickScrollToAboutSection } from "../Footer/Newsletter/Newsletter
 import { handleClickScrollToTopSection } from "../Home/Banner/Banner";
 
 import "./Header.scss";
+import { CreatedContext } from "../../utils/Context";
 
 const Header = () => {
   // * here i will add class on scroll and make header sticky
@@ -21,6 +22,8 @@ const Header = () => {
   const [showCart, setShowCart] = useState(false);
   // i will add state for open and close search button using this state
   const [showSearch, setShowSearch] = useState(false);
+  // to change cart count on shopping cart icon
+  const { cartCount } = useContext(CreatedContext);
 
   //  * creating navigate instance to navigate it to the home
   const navigate = useNavigate();
@@ -62,7 +65,7 @@ const Header = () => {
             <span className="cart-icon">
               {/* here it will trigger the cart and open it */}
               <CgShoppingCart onClick={() => setShowCart(true)} />
-              <span>5</span>
+              {!!cartCount && <span>{cartCount}</span>}
             </span>
           </div>
         </div>

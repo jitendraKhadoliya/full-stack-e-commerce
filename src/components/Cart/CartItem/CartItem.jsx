@@ -27,6 +27,7 @@ const CartItem = () => {
               className="close-btn"
               onClick={() => handleRemoveFromCart(item)}
             />
+
             <div className="quantity-buttons">
               <span onClick={() => handleCartProductQuantity("dec", item)}>
                 -

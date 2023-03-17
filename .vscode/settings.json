@@ -3,5 +3,5 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["pagenotfound", "Pinterest", "Quora"]
+  "cSpell.words": ["pagenotfound", "Pinterest", "Quora", "STRAPI"]
 }

@@ -4,8 +4,34 @@ import "./Cart.scss";
 import CartItem from "./CartItem/CartItem.jsx";
 import { useContext } from "react";
 import { CreatedContext } from "../../utils/Context";
+import { loadStripe } from "@stripe/stripe-js";
+import { makePaymentRequest } from "../../utils/api";
 
 const Cart = ({ setShowCart }) => {
+  const { cartItem, setCartItem } = useContext(CreatedContext);
+
+  // * here i Will create instance for load stripe and use publishable key there
+  const stripePromise = loadStripe(
+    process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+  );
+
+  // ! this is the function for stripe checkout page
+
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const res = await makePaymentRequest("/api/orders", {
+        products: cartItem,
+      });
+
+      await stripe.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   let { cartSubTotal } = useContext(CreatedContext);
   return (
     <div className="cart-panel">
@@ -42,7 +68,9 @@ const Cart = ({ setShowCart }) => {
                 <span className="total">&#8377;{cartSubTotal}</span>
               </div>
               <div className="button">
-                <button className="checkout-cta">Checkout</button>
+                <button className="checkout-cta" onClick={handlePayment}>
+                  Checkout
+                </button>
               </div>
             </div>
           </>

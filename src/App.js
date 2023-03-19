@@ -7,6 +7,8 @@ import Newsletter from "./components/Footer/Newsletter/Newsletter.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import AppContext from "./utils/Context";
 import PageNotFound from "./components/pagenotfound/PageNotFound.jsx";
+import SuccessPage from "./components/paymentPage/SuccessPage.jsx";
+import RejectedPage from "./components/paymentPage/RejectedPage.jsx";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="category/:id" element={<Category />} />
             <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/success" element={<SuccessPage />} />
+            <Route path="?success=false" element={<RejectedPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
           <Newsletter />

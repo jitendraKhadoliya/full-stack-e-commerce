@@ -8,11 +8,11 @@ import { loadStripe } from "@stripe/stripe-js";
 import { makePaymentRequest } from "../../utils/api";
 
 const Cart = ({ setShowCart }) => {
-  const { cartItem, setCartItem } = useContext(CreatedContext);
+  let { cartSubTotal, cartItems } = useContext(CreatedContext);
 
   // * here i Will create instance for load stripe and use publishable key there
   const stripePromise = loadStripe(
-    process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+    `${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`
   );
 
   // ! this is the function for stripe checkout page
@@ -20,19 +20,17 @@ const Cart = ({ setShowCart }) => {
   const handlePayment = async () => {
     try {
       const stripe = await stripePromise;
-      const res = await makePaymentRequest("/api/orders", {
-        products: cartItem,
+      const res = await makePaymentRequest.post("/api/orders", {
+        products: cartItems,
       });
-
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
       });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  let { cartSubTotal } = useContext(CreatedContext);
   return (
     <div className="cart-panel">
       <div className="opacity-layer"></div>

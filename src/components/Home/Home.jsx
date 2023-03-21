@@ -10,6 +10,11 @@ import { CreatedContext } from "../../utils/Context.js";
 import "./Home.scss";
 
 const Home = () => {
+  // here i will access data from context.js folder
+
+  const { categories, setCategories } = useContext(CreatedContext);
+  const { products, setProducts } = useContext(CreatedContext);
+
   useEffect(() => {
     // writing function for categories
     const getCategories = () => {
@@ -28,12 +33,7 @@ const Home = () => {
 
     getCategories();
     getProducts();
-  }, []);
-
-  // here i will access data from context.js folder
-
-  const { categories, setCategories } = useContext(CreatedContext);
-  const { products, setProducts } = useContext(CreatedContext);
+  }, [setCategories, setProducts]);
 
   return (
     <div>

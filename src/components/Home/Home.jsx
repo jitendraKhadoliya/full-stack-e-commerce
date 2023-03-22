@@ -1,8 +1,9 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 
 import Category from "./Category/Category.jsx";
 import Banner from "../Home/Banner/Banner.jsx";
 import Products from "../Products/Products.jsx";
+import Loader from "../loader/Loader.jsx";
 
 import { fetchDataFromApi } from "../../utils/api.js";
 import { CreatedContext } from "../../utils/Context.js";
@@ -14,7 +15,9 @@ const Home = () => {
 
   const { categories, setCategories } = useContext(CreatedContext);
   const { products, setProducts } = useContext(CreatedContext);
-
+  // * i will first put it into loading state till we get our data
+  const [load, setLoad] = useState(true);
+  //* console.log(categories);
   useEffect(() => {
     // writing function for categories
     const getCategories = () => {
@@ -30,10 +33,17 @@ const Home = () => {
         setProducts(res);
       });
     };
-
     getCategories();
     getProducts();
   }, [setCategories, setProducts]);
+
+  // * creating this effect to control loading
+
+  useEffect(() => {
+    if (categories === undefined) {
+      setLoad(true);
+    } else setLoad(false);
+  }, [categories]);
 
   return (
     <div>
@@ -41,8 +51,14 @@ const Home = () => {
 
       <div className="main-content">
         <div className="layout">
-          <Category categories={categories} />
-          <Products products={products} headingText="Popular Products" />
+          {load ? (
+            <Loader />
+          ) : (
+            <>
+              <Category categories={categories} />
+              <Products products={products} headingText="Popular Products" />
+            </>
+          )}
         </div>
       </div>
     </div>

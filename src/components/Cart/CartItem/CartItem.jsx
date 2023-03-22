@@ -13,11 +13,10 @@ const CartItem = () => {
       {cartItems.map((item) => (
         <div key={item.id} className="cart-product">
           <div className="img-container">
+            {/* don;t need it now because i can fetch the data from url */}
+            {/* process.env.REACT_APP_DEV_URL + */}
             <img
-              src={
-                process.env.REACT_APP_DEV_URL +
-                item.attributes.img.data[0].attributes.url
-              }
+              src={item.attributes.img.data[0].attributes.url}
               alt="cart-product"
             />
           </div>

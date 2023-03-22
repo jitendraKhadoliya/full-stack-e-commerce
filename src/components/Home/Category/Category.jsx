@@ -18,6 +18,7 @@ export const handleClickScrollToCategorySection = () => {
 const Category = ({ categories }) => {
   // here i will navigate the page using it's id
   const navigate = useNavigate();
+
   return (
     <div className="shop-by-category" id="category">
       <div className="categories">
@@ -27,11 +28,10 @@ const Category = ({ categories }) => {
             className="category"
             onClick={() => navigate(`category/${item.id}`)}
           >
+            {/* no need for it now */}
+            {/* process.env.REACT_APP_DEV_URL + */}
             <img
-              src={
-                process.env.REACT_APP_DEV_URL +
-                item.attributes.img.data.attributes.url
-              }
+              src={item.attributes.img.data.attributes.url}
               alt="category-product"
             />
           </div>

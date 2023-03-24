@@ -1,18 +1,35 @@
 import React from "react";
-import { useContext } from "react";
-import { CreatedContext } from "../../utils/Context";
+import { useNavigate } from "react-router-dom";
 
 const SuccessPage = () => {
-  const { cartItems } = useContext(CreatedContext);
+  const navigate = useNavigate();
   return (
-    <div>
-      <h1 style={{}}>SuccessPage</h1>
-      {cartItems.map((item) => (
-        <div key={item.id}>
-          <h1>{item.attributes.title}</h1>
-          console.log(item);
-        </div>
-      ))}
+    <div
+      style={{
+        height: "50vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <h1>your Payment got successful...</h1>
+      <button
+        style={{
+          marginTop: "20px",
+          border: "1px solid black",
+          padding: "10px",
+          background: "#8e2de2",
+          color: "white",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        GO TO PRODUCTS..
+      </button>
     </div>
   );
 };

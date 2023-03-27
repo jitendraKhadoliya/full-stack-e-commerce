@@ -1,3 +1,23 @@
+I am excited to share about my latest project, Zenbazaar - a full stack application for tech gadgets such as headphones, wireless earbuds, Bluetooth speakers, and smartwatches.
+
+Using a range of technologies such as React, React Icons, SCSS, SCSS @mixin for media query, Context API, Axios, Strapi, Stripe, and Postgres for data storage, I have built a responsive and beautifully designed application with a fully functional backend and frontend. Cloudnary was used to host all the images used in the application.
+
+With React Router DOM, I established routes for the home page, category page to choose products category-wise, single product page to show a single product, success page, rejected page after Stripe payment, and \* router to create redirection in case of a wrong URL. The header and footer were designed to make the application look more professional, and a beautiful loading indicator was added while fetching data from the server.
+
+On the home page, there is a banner section, followed by the category section and then all the products. I used the useEffect hook to fetch the data from our Strapi server and show it on the home screen. The application has four categories of products, and all the category data is saved on the Strapi server with images and titles, and a relation is created with all the products.
+
+For each product, I created a special route to display details on a separate page. In the product details section, I showed related products, filtered by their category ID and ensured that the product does not match with the existing product using [$ne]. Pagination was also added to ensure that only a maximum of six products is shown in the related products section.
+
+To make the application more efficient, I created a custom hook named useFetch, which allows us to retrieve data from the Strapi servers easily. I also created a context page and several state variables to access category data, product data, cart items, cart count, and cart sub-total data, making it easy to access the data throughout the application.
+
+The header section includes a search functionality that filters products by title using the onChange event. The onClick event is used to navigate to the product page and its id with the help of the useParam hook and useNavigate hook. Whenever a product is added to the cart, it is shown in the header section, making it easy for the user to track their shopping cart.
+
+The cart section allows users to add or remove products from their cart, and the sub-total is displayed at the bottom. The checkout button uses Stripe payment gateway to handle payments. It first checks with Stripe's publishable key and then loads the stripePromise using async await function. Once the payment is made, it is redirected to the successful or rejected page.
+
+The application was deployed using Render for the backend and Netlify for the frontend, with all the necessary environment variables added. After deployment, I faced some errors, but I managed to remove them one by one, and the application is now working seamlessly.
+
+Overall, this project has been a great learning experience for me, and I am grateful for the knowledge and confidence it has given me.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

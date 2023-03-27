@@ -6,7 +6,7 @@ With React Router DOM, I established routes for the home page, category page to 
 
 On the home page, there is a banner section, followed by the category section and then all the products. I used the useEffect hook to fetch the data from our Strapi server and show it on the home screen. The application has four categories of products, and all the category data is saved on the Strapi server with images and titles, and a relation is created with all the products.
 
-For each product, I created a special route to display details on a separate page. In the product details section, I showed related products, filtered by their category ID and ensured that the product does not match with the existing product using [$ne]. Pagination was also added to ensure that only a maximum of six products is shown in the related products section.
+For each product,I created a special route to display details on a separate page. In the product details section, I showed related products, filtered by their category ID and ensured that the product does not match with the existing product using [$ne]. Pagination was also added to ensure that only a maximum of six products is shown in the related products section.
 
 To make the application more efficient, I created a custom hook named useFetch, which allows us to retrieve data from the Strapi servers easily. I also created a context page and several state variables to access category data, product data, cart items, cart count, and cart sub-total data, making it easy to access the data throughout the application.
 
@@ -17,6 +17,14 @@ The cart section allows users to add or remove products from their cart, and the
 The application was deployed using Render for the backend and Netlify for the frontend, with all the necessary environment variables added. After deployment, I faced some errors, but I managed to remove them one by one, and the application is now working seamlessly.
 
 Overall, this project has been a great learning experience for me, and I am grateful for the knowledge and confidence it has given me.
+
+![zenbazaar netlify app_ (7)](https://user-images.githubusercontent.com/113577106/227981108-e78eba01-0926-4e3f-95ae-48f96dff20be.png)
+![zenbazaar netlify app_ (1)](https://user-images.githubusercontent.com/113577106/227981184-872a0e4b-83b8-43fa-918e-6fe28470cc2c.png)
+![zenbazaar netlify app_ (2)](https://user-images.githubusercontent.com/113577106/227981209-34c8c7d8-2662-4a66-9ad8-0693be5eb8d8.png)
+![zenbazaar netlify app_ (5)](https://user-images.githubusercontent.com/113577106/227981641-bef1c636-3ead-4a43-a09a-d8ec67f5f2df.png)
+![zenbazaar netlify app_ (6)](https://user-images.githubusercontent.com/113577106/227981652-52758211-ca0b-4920-8b0c-fdf961033a34.png)
+
+
 
 # Getting Started with Create React App
 

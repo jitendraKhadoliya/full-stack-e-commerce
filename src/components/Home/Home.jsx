@@ -52,7 +52,11 @@ const Home = () => {
       <div className="main-content">
         <div className="layout">
           {load ? (
-            <Loader />
+            <Loader
+              title={
+                "Sorry, backend limitations may cause shutdowns. Reactivation may take up to 2 mins. Thank you for your patience "
+              }
+            />
           ) : (
             <>
               <Category categories={categories} />

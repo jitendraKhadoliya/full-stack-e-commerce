@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./loader.scss";
 
-const Loader = () => {
+const Loader = ({ title }) => {
+  const [data, setData] = useState("Loading ");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setData(title ? title : "Loading ");
+    }, 7000);
+
+    return () => clearTimeout(timer);
+  }, [title]);
+
   return (
     <>
       <div className="loading-container">
@@ -12,7 +22,8 @@ const Loader = () => {
           <div className="preloader__square"></div>
         </div>
         <div className="status">
-          Loading<span className="status__dot">.</span>
+          <span>{data}</span>
+          <span className="status__dot">.</span>
           <span className="status__dot">.</span>
           <span className="status__dot">.</span>
         </div>

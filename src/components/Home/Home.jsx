@@ -54,7 +54,7 @@ const Home = () => {
           {load ? (
             <Loader
               title={
-                "Sorry, backend limitations may cause shutdowns. Reactivation may take up to 2 mins. Thank you for your patience "
+                "Sorry, backend limitations may cause shutdowns. Reactivation may take 2-3 mins for first time. Thank you for your patience "
               }
             />
           ) : (
